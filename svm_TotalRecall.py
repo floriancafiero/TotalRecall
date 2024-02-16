@@ -8,9 +8,9 @@ from sklearn.model_selection import GridSearchCV
 import numpy as np
 
 # Step 2: Load your dataset
-# Assuming `data` is your DataFrame containing the text data and labels
-# `text_column` is the name of the column with the text
-# `label_column` is the name of the column with the labels indicating the presence of psychological disorders
+# Assuming `data` is a DataFrame containing the text data and labels. In our project:
+# `text_column` is the name of the column with the text provided (SDM)
+# `label_column` is the name of the column with the labels indicating the presence of ADHD
 texts = data[text_column]
 labels = data[label_column]
 
@@ -48,6 +48,5 @@ print(classification_report(y_test, predictions))
 # The recall score is specifically printed to ensure it meets the objective
 print("Recall Score:", recall_score(y_test, predictions))
 
-# Note: The primary goal is to achieve a recall of 1.00. The parameters in the grid (C, kernel, gamma) are adjusted to explore a range of possibilities. 
+# Note: The primary goal of TotalRecall is to achieve a recall of 1.00. The parameters in the grid (C, kernel, gamma) are adjusted to explore a range of possibilities. 
 # The 'class_weight' parameter in SVC is set to 'balanced' to automatically adjust weights inversely proportional to class frequencies, which is crucial for handling imbalanced datasets often found in psychological disorder detection tasks.
-# This setup might require further refinement based on the initial results, including adjusting the parameter grid, considering different feature extraction methods, or employing more advanced techniques like SMOTE for handling imbalanced data.
